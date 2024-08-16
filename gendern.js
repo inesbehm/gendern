@@ -32,39 +32,25 @@ document.getElementById('toggleDirection').addEventListener('click', function() 
     applyDirectionClass();
 });
 
-// genderize.js
 
 function genderizeTexts() {
-    // Definiere die Ersetzungsregeln für das Gendern
     const rules = {
-
         "Der Administrator": "Die Administratorin oder der Administrator",
-                
-        
         "Der Benutzer": "Die Benutzerin oder der Benutzer",
         "der User": "die Userin oder der User",
-        "Der Entwickler": "Die Entwicklerin oder der Entwickler",
-
-        
-
+        "Der Entwickler": "Die Entwicklerin oder der Entwickler",    
         "Der Anwender": "Die Anwenderin oder der Anwender",
         "der Techniker": "die Technikerin oder der Techniker",
         "Der Organisator": "Die Organisatorin oder der Organisator",
         "Jeder Teilnehmer": "Jede Teilnehmerin oder jeder Teilnehmer",
-        
-    };
-
-    // Funktion zum Ersetzen der Texte
+        };
     function replaceText(text) {
         for (const [key, value] of Object.entries(rules)) {
             text = text.replace(new RegExp(key, 'g'), value);
         }
         return text;
     }
-
-    // Hole die Texte von den HTML-Elementen
     const textElements = document.querySelectorAll('.genderize-text');
-
     textElements.forEach(element => {
         let originalText = element.innerHTML;
         let newText = replaceText(originalText);
